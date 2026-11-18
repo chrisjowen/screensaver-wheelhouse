@@ -1,0 +1,72 @@
+{
+	"$schema": "https://raw.githubusercontent.com/chrisjowen/wheelhouse/main/packages/plugin-sdk/plugin.schema.json",
+	"name": "screensaver",
+	"displayName": "Screensaver",
+	"version": "0.1.0",
+	"description": "When you step away, blurs Wheelhouse and sails a boat across it, with calm music if you like. Any mouse move, click or key brings you straight back.",
+	"author": { "name": "Chris Owen", "url": "https://github.com/chrisjowen" },
+	"repository": "https://github.com/chrisjowen/screensaver-wheelhouse",
+	"license": "MIT",
+	"keywords": ["screensaver", "idle", "header", "calm"],
+	"wheelhouse": {
+		"apiVersion": 1,
+		"server": "wheelhouse/server/index.js",
+		"ui": "wheelhouse/ui/index.js",
+		"enabledByDefault": false,
+		"contributions": [{ "id": "watch", "slot": "header.indicator" }],
+		"services": [],
+		"mcpServers": [],
+		"settings": {
+			"timeout": {
+				"title": "Start after",
+				"description": "How long Wheelhouse waits with no mouse, click, key, scroll or touch before it sails. It never starts while you are typing, a dialog is open or something is recording or playing.",
+				"type": "text",
+				"default": "5",
+				"options": [
+					{ "value": "1", "label": "1 minute" },
+					{ "value": "2", "label": "2 minutes" },
+					{ "value": "5", "label": "5 minutes" },
+					{ "value": "10", "label": "10 minutes" },
+					{ "value": "15", "label": "15 minutes" },
+					{ "value": "30", "label": "30 minutes" },
+					{ "value": "60", "label": "1 hour" },
+					{ "value": "never", "label": "Never: only when I click it in the header" }
+				]
+			},
+			"scene": {
+				"title": "Scene",
+				"description": "Three calm seascapes, or Wheelhouse’s own navy-and-gold card with what the fleet is doing.",
+				"type": "text",
+				"default": "dusk",
+				"options": [
+					{ "value": "dusk", "label": "Dusk sea" },
+					{ "value": "night", "label": "Starry night" },
+					{ "value": "fog", "label": "Harbour fog" },
+					{ "value": "wheelhouse", "label": "Wheelhouse (branded card)" }
+				]
+			},
+			"boat": {
+				"title": "Boat",
+				"type": "text",
+				"default": "sloop",
+				"options": [
+					{ "value": "sloop", "label": "Sloop" },
+					{ "value": "schooner", "label": "Schooner" },
+					{ "value": "paper", "label": "Paper boat" }
+				]
+			},
+			"sound": {
+				"title": "Play music",
+				"description": "A calm pad made in the browser; nothing is downloaded. Browsers let it play only once you have clicked or typed in Wheelhouse since the page opened.",
+				"type": "boolean",
+				"default": false
+			},
+			"volume": {
+				"title": "Music volume",
+				"description": "0 to 100.",
+				"type": "number",
+				"default": 40
+			}
+		}
+	}
+}
