@@ -12,7 +12,6 @@ A [Wheelhouse](https://github.com/chrisjowen/wheelhouse) plugin. When you step a
   - a dialog is open;
   - Wheelhouse is listening for dictation or a Live discussion is on;
   - a video or sound is playing;
-  - something is full screen;
   - the tab is in the background.
 
   While it holds off, the pill reads **held**, and its tooltip says why.

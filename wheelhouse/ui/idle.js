@@ -2,11 +2,11 @@
  * When the page counts as busy, so the screensaver holds off even though no
  * mouse or key has moved: the captain has text in a box (typing, or a
  * message not sent yet), a dialog is open, Wheelhouse is dictating or in a
- * Live discussion, a video or sound is playing, something is full screen, or
- * the tab is not showing at all.
+ * Live discussion, a video or sound is playing, or the tab is not showing
+ * at all.
  */
 
-/** @typedef {'hidden' | 'typing' | 'dialog' | 'recording' | 'live' | 'playing' | 'fullscreen'} Busy */
+/** @typedef {'hidden' | 'typing' | 'dialog' | 'recording' | 'live' | 'playing'} Busy */
 
 /** Plain words for the pill's tooltip. */
 export const BUSY_WORDS = /** @type {const} */ ({
@@ -15,8 +15,7 @@ export const BUSY_WORDS = /** @type {const} */ ({
 	dialog: 'a dialog is open',
 	recording: 'Wheelhouse is listening to your voice',
 	live: 'a Live discussion is on',
-	playing: 'something is playing',
-	fullscreen: 'something is full screen'
+	playing: 'something is playing'
 });
 
 const TEXT_INPUTS = new Set(['text', 'search', 'email', 'url', 'tel', 'password', 'number', '']);
@@ -78,7 +77,6 @@ export function busyReason(doc) {
 		const media = /** @type {HTMLMediaElement} */ (m);
 		if (!media.paused && !media.ended) return 'playing';
 	}
-	if (doc.fullscreenElement) return 'fullscreen';
 	return null;
 }
 
